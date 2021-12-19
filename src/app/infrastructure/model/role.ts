@@ -1,8 +1,9 @@
 import {Table, Column, Model, PrimaryKey, HasMany} from 'sequelize-typescript'
-import {User} from "./user/user";
+import User from "@app/infrastructure/model/user";
+
 
 @Table({tableName: "role"})
-export class Role extends Model {
+export default class Role extends Model {
 
     @Column
     value: string

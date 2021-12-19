@@ -1,10 +1,10 @@
 import {Table, Column, Model, PrimaryKey, BeforeCreate, HasMany, ForeignKey, BelongsTo} from 'sequelize-typescript'
-import {NewspaperStatus} from "./newspaper.status";
-import {Article} from "./article";
-import {Proposal} from "./proposal";
+import NewspaperStatus from "@app/infrastructure/model/newspaper.status";
+import Article from "@app/infrastructure/model/article";
+import Proposal from "@app/infrastructure/model/proposal";
 
 @Table({tableName: "newspaper"})
-export class Newspaper extends Model {
+export default class Newspaper extends Model {
 
     @Column
     number: number

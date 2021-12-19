@@ -1,8 +1,9 @@
 import {Table, Column, Model, HasMany} from 'sequelize-typescript'
-import {Proposal} from "./proposal";
+import Proposal from "@app/infrastructure/model/proposal";
+
 
 @Table({tableName: "proposal_status"})
-export class ProposalStatus extends Model {
+export default class ProposalStatus extends Model {
 
     @Column
     value: string

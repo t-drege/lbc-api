@@ -1,32 +1,38 @@
 import {Table, Column, Model, HasMany, HasOne, ForeignKey, BelongsTo, BeforeCreate} from 'sequelize-typescript'
-import {Role} from "../role";
-import {Article} from "../article";
-import {Category} from "../category";
-import {Proposal} from "../proposal";
 
+import * as bcrypt from 'bcrypt'
+import Role from "@app/infrastructure/model/role";
+import Article from "@app/infrastructure/model/article";
+import Category from "@app/infrastructure/model/category";
+import Proposal from "@app/infrastructure/model/proposal";
+import DateTimeFormat = Intl.DateTimeFormat;
 
 @Table({tableName: 'user'})
-export class User extends Model {
+export default class User extends Model {
 
-    @Column
+    @Column({field: "firstname"})
     firstname: string
 
-    @Column
+    @Column({field: "lastname"})
     lastname: string
 
-    @Column
+    @Column({field: "username"})
     username: string
 
-    @Column
+    @Column({field: "email"})
     email: string
 
-    @Column
+    @Column({field: "password"})
     password: string
 
+    @Column({field: "created_at"})
+    createdAt: Date
+
+    @Column({field: "updated_at"})
+    updatedAt: Date
+
     @ForeignKey(() => Role)
-    @Column({
-        field: "role_id"
-    })
+    @Column({field: "role_id"})
     roleId: number
 
     @BelongsTo(() => Role)
@@ -41,14 +47,11 @@ export class User extends Model {
     @HasMany(() => Proposal, {foreignKey: 'user_id', as: 'userProposal'})
     proposals: Proposal[]
 
-    @HasMany(() => Proposal, {foreignKey:'author_id', as: 'author'})
-    proposalsAuthor: Proposal[]
-
-    /*@BeforeCreate
+    @BeforeCreate
     public static async encryptPassword(user: User) {
         user.password = await bcrypt.hash(user.password, 10).then(function (hash) {
             return hash
         })
-    }*/
+    }
 
 }

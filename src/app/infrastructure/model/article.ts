@@ -1,11 +1,12 @@
 import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript'
-import {User} from "./user/user";
-import {Category} from "./category";
-import {Newspaper} from "./newspaper";
-import {ArticleStatus} from "./article.status";
+import User from "@app/infrastructure/model/user";
+import Category from "@app/infrastructure/model/category";
+import Newspaper from "@app/infrastructure/model/newspaper";
+import ArticleStatus from "@app/infrastructure/model/article.status";
+
 
 @Table({tableName: 'article'})
-export class Article extends Model {
+export default class Article extends Model {
 
     @Column
     comment: string

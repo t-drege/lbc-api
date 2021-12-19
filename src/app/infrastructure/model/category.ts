@@ -1,10 +1,11 @@
 import {Table, Column, Model, PrimaryKey, HasMany, ForeignKey, HasOne, BelongsTo} from 'sequelize-typescript'
-import {User} from "./user/user";
-import {Article} from "./article";
-import {Proposal} from "./proposal";
+import Article from "@app/infrastructure/model/article";
+import User from "@app/infrastructure/model/user";
+import Proposal from "@app/infrastructure/model/proposal";
+
 
 @Table({tableName: "category"})
-export class Category extends Model {
+export default class Category extends Model {
 
     @Column
     value: string
