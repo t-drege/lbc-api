@@ -1,17 +1,37 @@
-import {Controller, Get} from "@nestjs/common";
+import {Controller, Inject, Post, Req, Res} from "@nestjs/common";
 import CreateUsecase from "@app/domain/backoffice/usecase/user/create.usecase";
-import User from "@app/infrastructure/model/user";
+import ICreatePresenter from "@app/domain/backoffice/presenter/user/i.create.presenter";
+import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
+import CreateRequest from "@app/domain/backoffice/request/user/create.request";
+
 
 @Controller('/users')
 export class CreateController {
 
-    constructor(private readonly usecase: CreateUsecase) {}
+    private readonly usecase: CreateUsecase
+    private readonly presenter: CreatePresenter
 
-    @Get()
-    createAction()  {
-        let ok = this.usecase.execute().then(function (ok) {
-                return ok
+    constructor(usecase: CreateUsecase, @Inject('ICreatePresenter')presenter: ICreatePresenter) {
+        this.usecase = usecase
+        this.presenter = presenter
+    }
+
+    @Post()
+    createAction(@Req() req, @Res() res) {
+        this.presenter.present(
+            this.usecase.execute(
+                new CreateRequest(
+                    req.body.firstname,
+                    req.body.lastname,
+                    req.body.username,
+                    req.body.email,
+                    req.body.password,
+                    req.body.role_id
+                ))).then(function (viewmodel) {
+            res.status(viewmodel.statusCode).send(viewmodel.user)
+        }).catch(function (error) {
+            console.log(error)
         })
-        return ok
+
     }
 }
