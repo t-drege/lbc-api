@@ -15,8 +15,8 @@ import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
         , {
             provide: 'CreateGateway',
             useClass: CreateRepository
-        }]
+        },
+    ]
 })
-
 export class CreateModule {
 }

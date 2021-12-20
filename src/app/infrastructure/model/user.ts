@@ -5,7 +5,6 @@ import Role from "@app/infrastructure/model/role";
 import Article from "@app/infrastructure/model/article";
 import Category from "@app/infrastructure/model/category";
 import Proposal from "@app/infrastructure/model/proposal";
-import DateTimeFormat = Intl.DateTimeFormat;
 
 @Table({tableName: 'user'})
 export default class User extends Model {

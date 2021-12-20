@@ -1,8 +1,12 @@
-import {Controller, Inject, Post, Req, Res} from "@nestjs/common";
+import {Controller, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
 import CreateUsecase from "@app/domain/backoffice/usecase/user/create.usecase";
 import ICreatePresenter from "@app/domain/backoffice/presenter/user/i.create.presenter";
 import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
 import CreateRequest from "@app/domain/backoffice/request/user/create.request";
+import {Roles} from "@config/auth/roles/roles.decorator";
+import {Role} from "@config/auth/roles/role";
+import {RolesGuard} from "@config/auth/roles/roles.guard";
+import {JwtAuthGuard} from "@config/auth/jwt/jwt.guard";
 
 
 @Controller('/users')
@@ -16,6 +20,7 @@ export class CreateController {
         this.presenter = presenter
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post()
     createAction(@Req() req, @Res() res) {
         this.presenter.present(
@@ -29,8 +34,6 @@ export class CreateController {
                     req.body.role_id
                 ))).then(function (viewmodel) {
             res.status(viewmodel.statusCode).send(viewmodel.user)
-        }).catch(function (error) {
-            console.log(error)
         })
 
     }
