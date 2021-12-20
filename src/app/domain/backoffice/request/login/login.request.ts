@@ -1,19 +1,13 @@
 export class LoginRequest {
 
-    private readonly _email:string
-    private readonly _password:string
+    private readonly _user:any
 
-    constructor(email:string, password:string) {
-        this._email = email
-        this._password = password
+    constructor(user:any) {
+        this._user = user
     }
 
-    get email(): string {
-        return this._email;
-    }
-
-    get password(): string {
-        return this._password;
+    get user(): any {
+        return this._user;
     }
 
 }

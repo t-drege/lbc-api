@@ -1,24 +1,14 @@
-import { Injectable } from '@nestjs/common';
-
-// This should be a real class/interface representing a user entity
-export type User = any;
+import {Injectable} from '@nestjs/common';
+import User from "@app/infrastructure/model/user";
 
 @Injectable()
 export class UsersService {
-    private readonly users = [
-        {
-            userId: 1,
-            email: 'thomasdrege1@gmail.com',
-            password: 'totomax',
-        },
-        {
-            userId: 2,
-            email: 'maria',
-            password: 'guess',
-        },
-    ];
 
     async findOne(email: string): Promise<User | undefined> {
-        return this.users.find(user => user.email === email);
+        return User.findOne({
+            where: {
+                email: email
+            }
+        })
     }
 }

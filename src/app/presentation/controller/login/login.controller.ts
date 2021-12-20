@@ -1,31 +1,25 @@
-import {Controller, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
+import {Controller, Inject, Post, Request, Response, UseGuards} from "@nestjs/common";
 import {LocalAuthGuard} from "@config/auth/auth.guard";
 import {LoginPresenterImpl} from "@app/domain/backoffice/presenter/login/login.presenter.impl";
 import {AuthService} from "@config/auth/auth.service";
+import {LoginUseCase} from "@app/domain/backoffice/usecase/login/login.usecase";
+import {LoginRequest} from "@app/domain/backoffice/request/login/login.request";
 
 @Controller('/login')
 export class LoginController {
 
-    //private useCase: AuthUseCase
+    private useCase: LoginUseCase
     private presenter: LoginPresenterImpl
-    private authService: AuthService
 
-    constructor(/*useCase: AuthUseCase,*/ authService: AuthService, @Inject('IAuthPresenter') presenter: LoginPresenterImpl) {
-        //this.useCase = useCase
-        this.authService = authService
+    constructor(useCase: LoginUseCase, @Inject('IAuthPresenter') presenter: LoginPresenterImpl) {
+        this.useCase = useCase
         this.presenter = presenter
     }
 
-    @UseGuards(LocalAuthGuard)
     @Post()
-    public loginAction(@Req() req, @Res() res) {
-        this.authService.login(req.user).then(function (token) {
-            res.send(token);
-        })
-        /*this.presenter.present(this.useCase.execute(new AuthRequest(req.body.email, req.body.password)))
-            .then(function (response) {
-                res.status(res.statusCode).send("res")
-            })*/
+    @UseGuards(LocalAuthGuard)
+    public async loginAction(@Request() req, @Response() res) {
+        const vm = await this.presenter.present(this.useCase.execute(new LoginRequest(req.user)))
+        res.status(vm.statusCode).send(vm.tokens)
     }
-
 }

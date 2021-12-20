@@ -5,11 +5,12 @@ import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
 import CreateRequest from "@app/domain/backoffice/request/user/create.request";
 import {Roles} from "@config/auth/roles/roles.decorator";
 import {Role} from "@config/auth/roles/role";
-import {RolesGuard} from "@config/auth/roles/roles.guard";
 import {JwtAuthGuard} from "@config/auth/jwt/jwt.guard";
+import {RolesGuard} from "@config/auth/roles/roles.guard";
 
 
 @Controller('/users')
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class CreateController {
 
     private readonly usecase: CreateUsecase
@@ -20,9 +21,9 @@ export class CreateController {
         this.presenter = presenter
     }
 
-    @UseGuards(JwtAuthGuard)
     @Post()
-    createAction(@Req() req, @Res() res) {
+    @Roles(Role.USER, Role.ADMIN)
+    async createAction(@Req() req, @Res() res) {
         this.presenter.present(
             this.usecase.execute(
                 new CreateRequest(

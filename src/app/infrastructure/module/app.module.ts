@@ -24,10 +24,7 @@ import {LoginModule} from "@app/infrastructure/module/login/login.module";
         LoginModule,
     ],
     controllers: [AppController],
-    providers: [AppService, {
-        provide: APP_GUARD,
-        useClass: RolesGuard,
-    }],
+    providers: [AppService],
 })
 export class AppModule {
 }

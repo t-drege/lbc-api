@@ -8,7 +8,8 @@ export class LoginRepository implements AuthGateway {
         return User.findOne({
             where: {
                 email: email
-            }
+            },
+            raw: true
         })
     }
 }

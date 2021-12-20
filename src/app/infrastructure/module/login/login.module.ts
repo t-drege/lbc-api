@@ -4,13 +4,14 @@ import {LoginController} from "@app/presentation/controller/login/login.controll
 import {LoginPresenter} from "@app/presentation/presenter/login/login.presenter";
 import {AuthService} from "@config/auth/auth.service";
 import {AuthModule} from "@config/auth/auth.module";
+import {LoginUseCase} from "@app/domain/backoffice/usecase/login/login.usecase";
 
 
 @Module({
     controllers: [LoginController],
     imports: [AuthModule],
     providers: [
-        //AuthUseCase,
+        LoginUseCase,
         {
             provide: 'IAuthPresenter',
             useClass: LoginPresenter
