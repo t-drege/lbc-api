@@ -5,6 +5,7 @@ import Role from "@app/infrastructure/model/role";
 import Article from "@app/infrastructure/model/article";
 import Category from "@app/infrastructure/model/category";
 import Proposal from "@app/infrastructure/model/proposal";
+import Newspaper from "@app/infrastructure/model/newspaper";
 
 @Table({tableName: 'user'})
 export default class User extends Model {
@@ -45,6 +46,9 @@ export default class User extends Model {
 
     @HasMany(() => Proposal, {foreignKey: 'user_id', as: 'userProposal'})
     proposals: Proposal[]
+
+    @HasMany(() => Newspaper)
+    newspapers: Newspaper[]
 
     @BeforeCreate
     public static async encryptPassword(user: User) {

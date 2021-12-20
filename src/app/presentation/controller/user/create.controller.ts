@@ -1,7 +1,6 @@
 import {Controller, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
 import CreateUsecase from "@app/domain/backoffice/usecase/user/create.usecase";
 import ICreatePresenter from "@app/domain/backoffice/presenter/user/i.create.presenter";
-import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
 import CreateRequest from "@app/domain/backoffice/request/user/create.request";
 import {Roles} from "@config/auth/roles/roles.decorator";
 import {Role} from "@config/auth/roles/role";
@@ -14,7 +13,7 @@ import {RolesGuard} from "@config/auth/roles/roles.guard";
 export class CreateController {
 
     private readonly usecase: CreateUsecase
-    private readonly presenter: CreatePresenter
+    private readonly presenter: ICreatePresenter
 
     constructor(usecase: CreateUsecase, @Inject('ICreatePresenter')presenter: ICreatePresenter) {
         this.usecase = usecase
@@ -22,7 +21,7 @@ export class CreateController {
     }
 
     @Post()
-    @Roles(Role.USER, Role.ADMIN)
+    @Roles(Role.ADMIN)
     async createAction(@Req() req, @Res() res) {
         this.presenter.present(
             this.usecase.execute(

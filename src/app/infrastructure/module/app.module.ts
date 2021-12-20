@@ -7,6 +7,7 @@ import {APP_GUARD} from "@nestjs/core";
 import {RolesGuard} from "@config/auth/roles/roles.guard";
 import {AuthModule} from "@config/auth/auth.module";
 import {LoginModule} from "@app/infrastructure/module/login/login.module";
+import {CreateNewspaperModule} from "@app/infrastructure/module/newspaper/create.newspaper.module";
 
 @Module({
     imports: [
@@ -22,6 +23,7 @@ import {LoginModule} from "@app/infrastructure/module/login/login.module";
         }),
         CreateModule,
         LoginModule,
+        CreateNewspaperModule
     ],
     controllers: [AppController],
     providers: [AppService],
