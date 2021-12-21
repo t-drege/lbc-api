@@ -2,10 +2,10 @@ import {Controller, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
 import CreateUsecase from "@app/domain/backoffice/usecase/user/create.usecase";
 import ICreatePresenter from "@app/domain/backoffice/presenter/user/i.create.presenter";
 import CreateRequest from "@app/domain/backoffice/request/user/create.request";
-import {Roles} from "@config/auth/roles/roles.decorator";
-import {Role} from "@config/auth/roles/role";
-import {JwtAuthGuard} from "@config/auth/jwt/jwt.guard";
-import {RolesGuard} from "@config/auth/roles/roles.guard";
+import {Roles} from "@app/infrastructure/auth/roles/roles.decorator";
+import {Role} from "@app/infrastructure/auth/roles/role";
+import {JwtAuthGuard} from "@app/infrastructure/auth/jwt/jwt.guard";
+import {RolesGuard} from "@app/infrastructure/auth/roles/roles.guard";
 
 
 @Controller('/users')

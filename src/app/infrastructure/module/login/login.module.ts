@@ -2,8 +2,7 @@ import {Module} from "@nestjs/common";
 import {LoginRepository} from "@app/infrastructure/repository/login/login.repository";
 import {LoginController} from "@app/presentation/controller/login/login.controller";
 import {LoginPresenter} from "@app/presentation/presenter/login/login.presenter";
-import {AuthService} from "@config/auth/auth.service";
-import {AuthModule} from "@config/auth/auth.module";
+import {AuthModule} from "@app/infrastructure/auth/auth.module";
 import {LoginUseCase} from "@app/domain/backoffice/usecase/login/login.usecase";
 
 

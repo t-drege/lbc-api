@@ -1,6 +1,6 @@
 import {Controller, Inject, Post, Req, Res, UseGuards} from "@nestjs/common";
-import {JwtAuthGuard} from "@config/auth/jwt/jwt.guard";
-import {RolesGuard} from "@config/auth/roles/roles.guard";
+import {JwtAuthGuard} from "@app/infrastructure/auth/jwt/jwt.guard";
+import {RolesGuard} from "@app/infrastructure/auth/roles/roles.guard";
 import {CreateNewspaper} from "@app/domain/backoffice/usecase/newspaper/create.newspaper";
 import {CreateNewspaperPresenterImpl} from "@app/domain/backoffice/presenter/newspaper/create.newspaper.presenter.impl";
 import {CreateNewspaperRequest} from "@app/domain/backoffice/request/newspaper/create.newspaper.request";

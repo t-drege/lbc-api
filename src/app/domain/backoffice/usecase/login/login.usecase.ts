@@ -2,8 +2,8 @@ import {Inject, Injectable, UseGuards} from "@nestjs/common";
 import {AuthGateway} from "@app/domain/backoffice/gateway/login/auth.gateway";
 import {LoginRequest} from "@app/domain/backoffice/request/login/login.request";
 import {LoginResponse} from "@app/domain/backoffice/response/login/login.response";
-import {AuthService} from "@config/auth/auth.service";
-import {LocalAuthGuard} from "@config/auth/auth.guard";
+import {AuthService} from "@app/infrastructure/auth/auth.service";
+
 
 @Injectable()
 export class LoginUseCase {

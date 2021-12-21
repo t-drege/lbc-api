@@ -1,7 +1,6 @@
 import {Controller, Inject, Post, Request, Response, UseGuards} from "@nestjs/common";
-import {LocalAuthGuard} from "@config/auth/auth.guard";
+import {LocalAuthGuard} from "@app/infrastructure/auth/auth.guard";
 import {LoginPresenterImpl} from "@app/domain/backoffice/presenter/login/login.presenter.impl";
-import {AuthService} from "@config/auth/auth.service";
 import {LoginUseCase} from "@app/domain/backoffice/usecase/login/login.usecase";
 import {LoginRequest} from "@app/domain/backoffice/request/login/login.request";
 

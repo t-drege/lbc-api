@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from '@config/auth/passport/user/user.service';
+import { UsersService } from '@app/infrastructure/auth/passport/user/user.service';
 
 @Module({
     providers: [UsersService],
