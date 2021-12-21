@@ -2,5 +2,5 @@ import {UpdateNewspaperResponse} from "@app/domain/backoffice/response/newspaper
 import {UpdateNewspaperViewModel} from "@app/presentation/viewmodel/newspaper/update.newspaper.viewmodel";
 
 export interface UpdateNewspaperPresenterImpl {
-    present(response: Promise<UpdateNewspaperResponse>): Promise<UpdateNewspaperViewModel>
+    present(response: UpdateNewspaperResponse): UpdateNewspaperViewModel
 }

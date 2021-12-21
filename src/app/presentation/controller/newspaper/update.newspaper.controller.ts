@@ -20,7 +20,7 @@ export class UpdateNewspaperController {
     @Put()
     @UseGuards(JwtAuthGuard, RolesGuard)
     public async updateNewspaperAction(@Req() req, @Res() res) {
-        const vm = await this.presenter.present(this.usecase.execute(new UpdateNewspaperRequest(
+        const vm = this.presenter.present(await this.usecase.execute(new UpdateNewspaperRequest(
             req.params.id,
             req.body.number,
             req.body.principalTheme,

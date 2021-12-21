@@ -12,11 +12,17 @@ export class UpdateNewspaper {
         this.gateway = gateway
     }
 
-    public async execute(request: UpdateNewspaperRequest): Promise<UpdateNewspaperResponse> {
+    public async execute(request: UpdateNewspaperRequest) {
         const gateway = this.gateway
 
-        const newspaper: Newspaper = await this.gateway.update(request.id, request.number, request.principalTheme, request.newspaperStatusId, request.publishedAt, request.mediaId)
-            .then(() => gateway.findNewspaperById(request.id))
+        const newspaper: Newspaper = await this.gateway.update(
+            request.id,
+            request.number,
+            request.principalTheme,
+            request.newspaperStatusId,
+            request.publishedAt,
+            request.mediaId
+        ).then(() => gateway.findNewspaperById(request.id))
 
         return new UpdateNewspaperResponse(newspaper)
     }
