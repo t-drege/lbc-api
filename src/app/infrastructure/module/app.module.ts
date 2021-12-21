@@ -6,6 +6,7 @@ import {SequelizeModule} from "@nestjs/sequelize";
 import {LoginModule} from "@app/infrastructure/module/login/login.module";
 import {CreateNewspaperModule} from "@app/infrastructure/module/newspaper/create.newspaper.module";
 import {ListNewspapersModule} from "@app/infrastructure/module/newspaper/list.newspapers.module";
+import {UpdateNewspaperModule} from "@app/infrastructure/module/newspaper/update.newspaper.module";
 
 @Module({
     imports: [
@@ -22,7 +23,8 @@ import {ListNewspapersModule} from "@app/infrastructure/module/newspaper/list.ne
         CreateModule,
         LoginModule,
         CreateNewspaperModule,
-        ListNewspapersModule
+        ListNewspapersModule,
+        UpdateNewspaperModule
     ],
     controllers: [AppController],
     providers: [AppService],
