@@ -20,7 +20,6 @@ export class CreateNewspaperController {
     @Post()
     @UseGuards(JwtAuthGuard, RolesGuard)
     async createAction(@Req() req, @Res() res) {
-        console.log( req.user.id)
         const vm: CreateNewspaperViewModel = this.presenter.present(
             await this.usecase.execute(new CreateNewspaperRequest(
                 req.body.number,
