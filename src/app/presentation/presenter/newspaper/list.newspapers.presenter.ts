@@ -4,9 +4,9 @@ import {ListNewspaperResponse} from "@app/domain/backoffice/response/newspaper/l
 import {HttpStatus} from "@nestjs/common";
 
 export class ListNewspapersPresenter implements ListNewspapersPresenterImpl {
-    async present(response: Promise<ListNewspaperResponse>): Promise<ListNewspapersViewModel> {
+    present(response: ListNewspaperResponse): ListNewspapersViewModel {
 
-        const res: ListNewspaperResponse = await response
+        const res: ListNewspaperResponse = response
         let statusCode = HttpStatus.OK
 
         if (res.rows.rows.length == 0) {

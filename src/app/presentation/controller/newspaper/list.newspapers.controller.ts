@@ -18,7 +18,7 @@ export class ListNewspapersController {
     @Get()
     @UseGuards(JwtAuthGuard, RolesGuard)
     public async listNewspapersAction(@Req() req, @Res() res) {
-        const vm = await this.presenter.present(this.usecase.execute(new ListNewspapersRequest(req.query.page, req.query.limit)))
+        const vm = this.presenter.present(await this.usecase.execute(new ListNewspapersRequest(req.query.page, req.query.limit)))
         res.status(vm.statusCode).send(vm.rows)
     }
 

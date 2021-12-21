@@ -12,7 +12,7 @@ export class ListNewspapers {
         this.gateway = gateway
     }
 
-    public async execute(request: ListNewspapersRequest): Promise<ListNewspaperResponse> {
+    public async execute(request: ListNewspapersRequest) {
         const {limit, offset} = pagination(request.page, request.limit)
         const newspapers = await this.gateway.findAll(offset, limit)
         const rows = pagingData(newspapers, request.page, limit)

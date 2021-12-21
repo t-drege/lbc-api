@@ -20,8 +20,9 @@ export class CreateNewspaperController {
     @Post()
     @UseGuards(JwtAuthGuard, RolesGuard)
     async createAction(@Req() req, @Res() res) {
-        const vm: CreateNewspaperViewModel = await this.presenter.present(
-            this.usecase.execute(new CreateNewspaperRequest(
+        console.log( req.user.id)
+        const vm: CreateNewspaperViewModel = this.presenter.present(
+            await this.usecase.execute(new CreateNewspaperRequest(
                 req.body.number,
                 req.body.principal_theme,
                 req.body.folder_upload,

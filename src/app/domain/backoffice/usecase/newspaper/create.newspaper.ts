@@ -12,7 +12,7 @@ export class CreateNewspaper {
         this._gateway = gateway
     }
 
-    public async execute(request: CreateNewspaperRequest): Promise<CreateNewspaperResponse> {
+    public async execute(request: CreateNewspaperRequest) {
         const newspaper: Newspaper = await this._gateway.create(new Newspaper({
             number: request.number,
             principalTheme: request.principalTheme,

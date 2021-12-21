@@ -2,5 +2,5 @@ import {ListNewspaperResponse} from "@app/domain/backoffice/response/newspaper/l
 import {ListNewspapersViewModel} from "@app/presentation/viewmodel/newspaper/list.newspapers.viewmodel";
 
 export interface ListNewspapersPresenterImpl {
-    present(response: Promise<ListNewspaperResponse>): Promise<ListNewspapersViewModel>
+    present(response: ListNewspaperResponse): ListNewspapersViewModel
 }

@@ -2,5 +2,5 @@ import {CreateNewspaperViewModel} from "@app/presentation/viewmodel/newspaper/cr
 import {CreateNewspaperResponse} from "@app/domain/backoffice/response/newspaper/create.newspaper.response";
 
 export interface CreateNewspaperPresenterImpl {
-    present(response: Promise<CreateNewspaperResponse>): Promise<CreateNewspaperViewModel>
+    present(response: CreateNewspaperResponse): CreateNewspaperViewModel
 }

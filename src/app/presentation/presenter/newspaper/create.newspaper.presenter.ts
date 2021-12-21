@@ -4,8 +4,7 @@ import {CreateNewspaperResponse} from "@app/domain/backoffice/response/newspaper
 import {HttpStatus} from "@nestjs/common";
 
 export class CreateNewspaperPresenter implements CreateNewspaperPresenterImpl {
-    async present(response: Promise<CreateNewspaperResponse>): Promise<CreateNewspaperViewModel> {
-        const res: CreateNewspaperResponse = await response
-        return new CreateNewspaperViewModel(res.newspaper, HttpStatus.CREATED)
+    present(response: CreateNewspaperResponse): CreateNewspaperViewModel {
+        return new CreateNewspaperViewModel(response.newspaper, HttpStatus.CREATED)
     }
 }
