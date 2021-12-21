@@ -55,4 +55,5 @@ export default class Newspaper extends Model {
             newspaper.driveFolder = `LBC ${newspaper.number}`
         })
     }*/
+
 }

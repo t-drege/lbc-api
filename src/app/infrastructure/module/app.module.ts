@@ -5,6 +5,7 @@ import {CreateModule} from "./user/create.module";
 import {SequelizeModule} from "@nestjs/sequelize";
 import {LoginModule} from "@app/infrastructure/module/login/login.module";
 import {CreateNewspaperModule} from "@app/infrastructure/module/newspaper/create.newspaper.module";
+import {ListNewspapersModule} from "@app/infrastructure/module/newspaper/list.newspapers.module";
 
 @Module({
     imports: [
@@ -20,7 +21,8 @@ import {CreateNewspaperModule} from "@app/infrastructure/module/newspaper/create
         }),
         CreateModule,
         LoginModule,
-        CreateNewspaperModule
+        CreateNewspaperModule,
+        ListNewspapersModule
     ],
     controllers: [AppController],
     providers: [AppService],
