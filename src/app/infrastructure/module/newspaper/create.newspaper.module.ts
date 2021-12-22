@@ -16,7 +16,7 @@ import {CreateNewspaperController} from "@app/presentation/controller/newspaper/
             provide: 'CreateNewspaperGateway',
             useClass: CreateNewspaperRepository
         },
-    ]
+    ],
 })
 export class CreateNewspaperModule {
 }

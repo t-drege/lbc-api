@@ -4,13 +4,19 @@ import {ListNewspapersPresenterImpl} from "@app/domain/backoffice/presenter/news
 import {JwtAuthGuard} from "@app/infrastructure/auth/jwt/jwt.guard";
 import {RolesGuard} from "@app/infrastructure/auth/roles/roles.guard";
 import {ListNewspapersRequest} from "@app/domain/backoffice/request/newspaper/list.newspapers.request";
+import {curly} from "node-libcurl";
+import {Paypal} from "@app/application/paypal/paypal.provider";
+import {PaypalRequestImpl} from "@app/application/paypal/paypal.request.impl";
+import {PaypalRequest} from "@app/application/paypal/paypal.request";
 
 @Controller('/newspapers')
 export class ListNewspapersController {
     private readonly usecase: ListNewspapers
     private readonly presenter: ListNewspapersPresenterImpl
+    private readonly paypalRequest: PaypalRequest
 
-    constructor(usecase: ListNewspapers, @Inject('ListNewspapersPresenterImpl') presenter: ListNewspapersPresenterImpl) {
+    constructor(usecase: ListNewspapers,
+                @Inject('ListNewspapersPresenterImpl') presenter: ListNewspapersPresenterImpl) {
         this.usecase = usecase
         this.presenter = presenter
     }

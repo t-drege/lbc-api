@@ -4,6 +4,7 @@ import {ListNewspapers} from "@app/domain/backoffice/usecase/newspaper/list.news
 import {ListNewspapersPresenter} from "@app/presentation/presenter/newspaper/list.newspapers.presenter";
 import {ListNewspapersRepository} from "@app/infrastructure/repository/newspaper/list.newspapers.repository";
 
+
 @Module({
     controllers: [ListNewspapersController],
     providers: [
