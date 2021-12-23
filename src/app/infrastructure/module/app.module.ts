@@ -11,6 +11,7 @@ import {ConfigModule} from "@nestjs/config";
 import {Paypal} from "@app/application/paypal/paypal.provider";
 import {AuthService} from "@app/infrastructure/auth/auth.service";
 import {PaypalModule} from "@app/application/paypal/paypal.module";
+import {CreateProductModule} from "@app/infrastructure/module/backoffice/product/create.product.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -31,6 +32,7 @@ process.env['NODE_ENV'] = 'development';
         CreateNewspaperModule,
         ListNewspapersModule,
         UpdateNewspaperModule,
+        CreateProductModule
     ],
     controllers: [AppController],
     providers: [AppService],
