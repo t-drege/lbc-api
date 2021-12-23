@@ -1,7 +1,6 @@
 import {CreateProductGateway} from "@app/domain/backoffice/gateway/product/create.product.gateway";
 import {Inject, Injectable} from "@nestjs/common";
 import {CreateProductRequest} from "@app/domain/backoffice/request/product/create.product.request";
-import ProductType from "@app/infrastructure/model/product.type";
 import {CreateProductResponse} from "@app/domain/backoffice/response/product/create.product.response";
 import {Plans} from "@app/infrastructure/model/paypal/plans";
 import {BillingCycles} from "@app/infrastructure/model/paypal/billing.cycles";
@@ -11,8 +10,7 @@ import {PricingScheme} from "@app/infrastructure/model/paypal/pricingScheme";
 import {PaymentPreferences} from "@app/infrastructure/model/paypal/payment.preferences";
 import {SetupFee} from "@app/infrastructure/model/paypal/setup.fee";
 import {Taxes} from "@app/infrastructure/model/paypal/taxes";
-import {deserialize, serialize} from "typescript-json-serializer";
-import set = Reflect.set;
+import {deserialize} from "typescript-json-serializer";
 import {ProductPaypal} from "@app/infrastructure/model/paypal/product.paypal";
 import Product from "@app/infrastructure/model/product";
 
@@ -49,7 +47,7 @@ export class CreateProduct {
 
             product = await this.gateway.updateKeyProduct(product.id, productPaypal.id, plan.id).then(() => this.gateway.findProduct(product.id))
         }
-
+        console.log(product)
         return new CreateProductResponse(product)
     }
 

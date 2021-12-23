@@ -38,4 +38,7 @@ export default class Product extends Model {
     @BelongsTo(() => Media)
     media: Media
 
+    @BelongsTo(() => ProductType)
+    productType: ProductType
+
 }

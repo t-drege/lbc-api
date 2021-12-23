@@ -15,14 +15,14 @@ export class CreateProductController {
 
     @Post()
     public async createProductAction(@Req() req, @Res() res) {
-       await this.usecase.execute(
+        const vm = this.presenter.present(await this.usecase.execute(
             new CreateProductRequest(
                 req.body.description,
                 req.body.price,
                 req.body.mediaId,
                 req.body.productTypeId,
                 req.body.isSubscription
-            ))
-        res.send('ok')
+            )))
+        res.status(vm.statusCode).send(vm.product)
     }
 }
