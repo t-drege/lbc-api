@@ -1,8 +1,8 @@
 import {Module} from "@nestjs/common";
-import {CreateController} from "@app/presentation/controller/user/create.controller";
+import {CreateController} from "@app/presentation/controller/backoffice/user/create.controller";
 import CreateUsecase from "@app/domain/backoffice/usecase/user/create.usecase";
-import {CreateRepository} from "@app/infrastructure/repository/user/create.repository";
-import CreatePresenter from "@app/presentation/presenter/user/create.presenter";
+import {CreateRepository} from "@app/infrastructure/repository/backoffice/user/create.repository";
+import CreatePresenter from "@app/presentation/presenter/backoffice/user/create.presenter";
 
 @Module({
     controllers: [CreateController],

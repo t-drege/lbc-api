@@ -1,17 +1,15 @@
 import {Module} from '@nestjs/common';
 import {AppController} from '@app/presentation/controller/app.controller';
 import {AppService} from '../repository/app.service';
-import {CreateModule} from "./user/create.module";
+import {CreateModule} from "./backoffice/user/create.module";
 import {SequelizeModule} from "@nestjs/sequelize";
-import {LoginModule} from "@app/infrastructure/module/login/login.module";
-import {CreateNewspaperModule} from "@app/infrastructure/module/newspaper/create.newspaper.module";
-import {ListNewspapersModule} from "@app/infrastructure/module/newspaper/list.newspapers.module";
-import {UpdateNewspaperModule} from "@app/infrastructure/module/newspaper/update.newspaper.module";
+import {LoginModule} from "@app/infrastructure/module/backoffice/login/login.module";
+import {CreateNewspaperModule} from "@app/infrastructure/module/backoffice/newspaper/create.newspaper.module";
+import {ListNewspapersModule} from "@app/infrastructure/module/backoffice/newspaper/list.newspapers.module";
+import {UpdateNewspaperModule} from "@app/infrastructure/module/backoffice/newspaper/update.newspaper.module";
 import {ConfigModule} from "@nestjs/config";
-import {Paypal} from "@app/application/paypal/paypal.provider";
-import {AuthService} from "@app/infrastructure/auth/auth.service";
-import {PaypalModule} from "@app/application/paypal/paypal.module";
 import {CreateProductModule} from "@app/infrastructure/module/backoffice/product/create.product.module";
+import {DeleteNewspaperModule} from "@app/infrastructure/module/backoffice/newspaper/delete.newspaper.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -32,7 +30,8 @@ process.env['NODE_ENV'] = 'development';
         CreateNewspaperModule,
         ListNewspapersModule,
         UpdateNewspaperModule,
-        CreateProductModule
+        DeleteNewspaperModule,
+        CreateProductModule,
     ],
     controllers: [AppController],
     providers: [AppService],

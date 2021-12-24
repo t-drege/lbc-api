@@ -1,5 +1,5 @@
 import CreateResponse from "@app/domain/backoffice/response/user/create.response";
-import CreateViewModel from "@app/presentation/viewmodel/user/create.viewmodel";
+import CreateViewModel from "@app/presentation/viewmodel/backoffice/user/create.viewmodel";
 import {HttpCode, HttpStatus, Injectable} from "@nestjs/common";
 import ICreatePresenter from "@app/domain/backoffice/presenter/user/i.create.presenter";
 

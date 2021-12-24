@@ -1,5 +1,5 @@
 import {ListNewspapersPresenterImpl} from "@app/domain/backoffice/presenter/newspaper/list.newspapers.presenter.impl";
-import {ListNewspapersViewModel} from "@app/presentation/viewmodel/newspaper/list.newspapers.viewmodel";
+import {ListNewspapersViewModel} from "@app/presentation/viewmodel/backoffice/newspaper/list.newspapers.viewmodel";
 import {ListNewspaperResponse} from "@app/domain/backoffice/response/newspaper/list.newspaper.response";
 import {HttpStatus} from "@nestjs/common";
 

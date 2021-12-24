@@ -4,7 +4,7 @@ import {RolesGuard} from "@app/infrastructure/auth/roles/roles.guard";
 import {CreateNewspaper} from "@app/domain/backoffice/usecase/newspaper/create.newspaper";
 import {CreateNewspaperPresenterImpl} from "@app/domain/backoffice/presenter/newspaper/create.newspaper.presenter.impl";
 import {CreateNewspaperRequest} from "@app/domain/backoffice/request/newspaper/create.newspaper.request";
-import {CreateNewspaperViewModel} from "@app/presentation/viewmodel/newspaper/create.newspaper.viewmodel";
+import {CreateNewspaperViewModel} from "@app/presentation/viewmodel/backoffice/newspaper/create.newspaper.viewmodel";
 
 @Controller('/newspapers')
 export class CreateNewspaperController {
