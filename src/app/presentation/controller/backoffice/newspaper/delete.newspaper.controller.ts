@@ -16,8 +16,8 @@ export class DeleteNewspaperController {
         this.presenter = presenter
     }
 
-    @Delete()
     @UseGuards(JwtAuthGuard, RolesGuard)
+    @Delete()
     public async deleteNewspaperAction(@Req() req, @Res() res) {
         const vm = this.presenter.present(await this.usecase.execute(new DeleteNewspaperRequest(req.params.id)))
         res.status(vm.statusCode).send(vm.numberObjectDeleted)
