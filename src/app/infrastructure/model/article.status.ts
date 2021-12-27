@@ -1,5 +1,5 @@
 import {Table, Column, Model, PrimaryKey, HasMany} from 'sequelize-typescript'
-import Article from "@app/infrastructure/model/article";
+import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 
 
 @Table({tableName: 'article_status'})
@@ -14,6 +14,6 @@ export default class ArticleStatus extends Model {
     @Column
     value: string
 
-    @HasMany(() => Article)
-    articles: Article[]
+    @HasMany(() => ArticleNewspaper)
+    articles: ArticleNewspaper[]
 }

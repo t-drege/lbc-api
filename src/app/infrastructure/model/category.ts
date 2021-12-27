@@ -1,5 +1,5 @@
 import {Table, Column, Model, PrimaryKey, HasMany, ForeignKey, HasOne, BelongsTo} from 'sequelize-typescript'
-import Article from "@app/infrastructure/model/article";
+import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 import User from "@app/infrastructure/model/user";
 import Proposal from "@app/infrastructure/model/proposal";
 
@@ -17,8 +17,8 @@ export default class Category extends Model {
     @BelongsTo(() => User, 'user_id')
     user: User
 
-    @HasMany(() => Article)
-    articles: Article[]
+    @HasMany(() => ArticleNewspaper)
+    articles: ArticleNewspaper[]
 
     @HasMany(() => Proposal)
     proposals: Proposal[]

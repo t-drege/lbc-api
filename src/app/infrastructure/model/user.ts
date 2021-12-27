@@ -2,7 +2,7 @@ import {Table, Column, Model, HasMany, HasOne, ForeignKey, BelongsTo, BeforeCrea
 
 import * as bcrypt from 'bcrypt'
 import Role from "@app/infrastructure/model/role";
-import Article from "@app/infrastructure/model/article";
+import ArticleNewspaper from "@app/infrastructure/model/article";
 import Category from "@app/infrastructure/model/category";
 import Proposal from "@app/infrastructure/model/proposal";
 import Newspaper from "@app/infrastructure/model/newspaper";
@@ -38,8 +38,8 @@ export default class User extends Model {
     @BelongsTo(() => Role)
     role: Role
 
-    @HasMany(() => Article)
-    articles: Article[]
+    @HasMany(() => ArticleNewspaper)
+    articles: ArticleNewspaper[]
 
     @HasOne(() => Category)
     category: Category
