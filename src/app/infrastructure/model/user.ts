@@ -2,7 +2,7 @@ import {Table, Column, Model, HasMany, HasOne, ForeignKey, BelongsTo, BeforeCrea
 
 import * as bcrypt from 'bcrypt'
 import Role from "@app/infrastructure/model/role";
-import ArticleNewspaper from "@app/infrastructure/model/article";
+import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 import Category from "@app/infrastructure/model/category";
 import Proposal from "@app/infrastructure/model/proposal";
 import Newspaper from "@app/infrastructure/model/newspaper";

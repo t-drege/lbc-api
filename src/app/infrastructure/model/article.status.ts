@@ -14,6 +14,6 @@ export default class ArticleStatus extends Model {
     @Column
     value: string
 
-    @HasMany(() => ArticleNewspaper)
-    articles: ArticleNewspaper[]
+    /*@HasMany(() => ArticleNewspaper)
+    articles: ArticleNewspaper[]*/
 }

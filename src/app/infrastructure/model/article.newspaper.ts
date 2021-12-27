@@ -1,11 +1,10 @@
-import {Table, Model, ForeignKey} from 'sequelize-typescript'
-import {Column} from "typeorm";
+import {Table, Column, Model, ForeignKey} from 'sequelize-typescript'
 import User from "@app/infrastructure/model/user";
 import Category from "@app/infrastructure/model/category";
 import Newspaper from "@app/infrastructure/model/newspaper";
 import ArticleNewspaperStatus from "@app/infrastructure/model/article.newspaper.status";
 
-@Table({tableName: 'article_newspaper'})
+@Table({tableName: "article_newspaper"})
 export default class ArticleNewspaper extends Model {
 
     @Column({field: 'title'})
