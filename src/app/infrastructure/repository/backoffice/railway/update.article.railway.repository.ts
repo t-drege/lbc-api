@@ -1,8 +1,6 @@
 import {Injectable} from "@nestjs/common";
 import {UpdateArticleRailwayGateway} from "@app/domain/backoffice/gateway/railway/update.article.railway.gateway";
 import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
-import Newspaper from "@app/infrastructure/model/newspaper";
-import NewspaperStatus from "@app/infrastructure/model/newspaper.status";
 import ArticleNewspaperStatus from "@app/infrastructure/model/article.newspaper.status";
 
 @Injectable()
