@@ -6,7 +6,7 @@ export class AddArticleRailwayRequest {
     private readonly _userId: number
     private readonly _newspaperId: number
 
-    constructor(title:string, description:string, categoryId: number, userId:number, newspaperId:number, articleNewspaperStatusId:number) {
+    constructor(title:string, description:string, categoryId: number, userId:number, newspaperId:number) {
         this._title = title
         this._description = description
         this._categoryId = categoryId

@@ -21,7 +21,7 @@ export class AddArticleRailway {
             newspaperId: request.newspaperId
         })
         const article = await this.gateway.createArticle(articleNewspaper)
-        new AddArticleRailwayResponse(article)
+        return new AddArticleRailwayResponse(article)
     }
 
 }
