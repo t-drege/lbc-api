@@ -4,7 +4,7 @@ import {AddArticleRailway} from "@app/domain/backoffice/usecase/railway/add.arti
 import {AddArticleRailwayRequest} from "@app/domain/backoffice/request/railway/add.article.railway.request";
 import {AddArticleRailwayViewModel} from "@app/presentation/viewmodel/backoffice/railway/add.article.railway.viewmodel";
 
-@Controller('/newspapers/:id/railway')
+@Controller('/newspapers/:id/articles-newspaper')
 export class AddArticleRailwayController {
 
     private readonly usecase: AddArticleRailway
