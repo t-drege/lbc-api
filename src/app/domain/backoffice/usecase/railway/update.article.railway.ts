@@ -13,7 +13,15 @@ export class UpdateArticleRailway {
     }
 
     public async execute(request: UpdateArticleRailwayRequest) {
-        await this.gateway.updateArticleNewspaper(request.articleNewspaperId, request.title, request.description, request.userId, request.categoryId)
+
+        await this.gateway.updateArticleNewspaper(
+            request.articleNewspaperId,
+            request.title,
+            request.description,
+            request.userId,
+            request.categoryId,
+            request.articleNewspaperStatusId)
+
         const article: ArticleNewspaper = await this.gateway.findArticleNewspaperById(request.articleNewspaperId)
         return new UpdateArticleRailwayResponse(article)
     }

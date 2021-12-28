@@ -21,7 +21,8 @@ export class UpdateArticleRailwayController {
             req.body.title,
             req.body.description,
             req.body.categoryId,
-            req.body.userId)))
+            req.body.userId,
+            req.body.articleNewspaperStatusId)))
 
         res.status(vm.statusCode).send(vm.articleNewspaper)
     }

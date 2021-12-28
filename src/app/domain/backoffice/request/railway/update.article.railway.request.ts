@@ -5,13 +5,15 @@ export class UpdateArticleRailwayRequest {
     private readonly _description: string
     private readonly _categoryId: number
     private readonly _userId: number
+    private readonly _articleNewspaperStatusId
 
-    constructor(articleNewspaperId: number, title: string, description: string, categoryId: number, userId: number) {
+    constructor(articleNewspaperId: number, title: string, description: string, categoryId: number, userId: number, articleNewspaperStatusId: number) {
         this._articleNewspaperId = articleNewspaperId
         this._title = title
         this._description = description
         this._categoryId = categoryId
         this._userId = userId
+        this._articleNewspaperStatusId = articleNewspaperStatusId
     }
 
     get articleNewspaperId(): number {
@@ -34,4 +36,7 @@ export class UpdateArticleRailwayRequest {
         return this._userId;
     }
 
+    get articleNewspaperStatusId() {
+        return this._articleNewspaperStatusId;
+    }
 }

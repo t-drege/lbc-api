@@ -30,7 +30,7 @@ export default class ArticleNewspaper extends Model {
 
     @Column({field: 'article_newspaper_status_id'})
     @ForeignKey(() => ArticleNewspaperStatus)
-    articleNewspaperId: number
+    articleNewspaperStatusId: number
 
     @Column({field: 'created_at'})
     createdAt: Date

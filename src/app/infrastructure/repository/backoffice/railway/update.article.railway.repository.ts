@@ -7,12 +7,13 @@ import ArticleNewspaperStatus from "@app/infrastructure/model/article.newspaper.
 
 @Injectable()
 export class UpdateArticleRailwayRepository implements UpdateArticleRailwayGateway {
-    updateArticleNewspaper(articleId: number, title: string, description: string, userId: number, categoryId: number): Promise<[number, ArticleNewspaper[]]> {
+    updateArticleNewspaper(articleId: number, title: string, description: string, userId: number, categoryId: number, articleNewspaperStatusId: number): Promise<[number, ArticleNewspaper[]]> {
         return ArticleNewspaper.update({
             title: title,
             description: description,
             userId: userId,
-            categoryId: categoryId
+            categoryId: categoryId,
+            articleNewspaperStatusId: articleNewspaperStatusId
         }, {
             where: {
                 id: articleId
