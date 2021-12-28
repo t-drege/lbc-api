@@ -1,9 +1,8 @@
 import {Table, Column, Model, HasMany} from 'sequelize-typescript'
-import Proposal from "@app/infrastructure/model/proposal";
+import Product from "@app/infrastructure/model/product";
 
-
-@Table({tableName: "proposal_status"})
-export default class ProposalStatus extends Model {
+@Table({tableName: "payment_type"})
+export default class PaymentType extends Model {
 
     @Column({field: 'value'})
     value: string
@@ -13,8 +12,5 @@ export default class ProposalStatus extends Model {
 
     @Column({field: 'updated_at'})
     updatedAt: Date
-
-    @HasMany(() => Proposal, 'proposal_status_id')
-    proposals: Proposal[]
 
 }

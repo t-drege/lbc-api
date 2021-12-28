@@ -7,8 +7,17 @@ import Proposal from "@app/infrastructure/model/proposal";
 @Table({tableName: "category"})
 export default class Category extends Model {
 
-    @Column
+    @Column({field:'value'})
     value: string
+
+    @Column({field:'color'})
+    color: string
+
+    @Column({field: 'created_at'})
+    createdAt: Date
+
+    @Column({field: 'updated_at'})
+    updatedAt: Date
 
     @Column({field: 'user_id'})
     @ForeignKey(() => User)

@@ -1,11 +1,9 @@
 import {Table, Column, Model, PrimaryKey, HasMany} from 'sequelize-typescript'
-import User from "@app/infrastructure/model/user";
 
+@Table({tableName: 'article_type'})
+export default class ArticleType extends Model {
 
-@Table({tableName: "role"})
-export default class Role extends Model {
-
-    @Column({field:'value'})
+    @Column({field: 'value'})
     value: string
 
     @Column({field: 'created_at'})
@@ -13,8 +11,5 @@ export default class Role extends Model {
 
     @Column({field: 'updated_at'})
     updatedAt: Date
-
-    @HasMany(() => User)
-    users: User[]
 
 }

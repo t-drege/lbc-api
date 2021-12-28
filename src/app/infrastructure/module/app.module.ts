@@ -10,6 +10,7 @@ import {UpdateNewspaperModule} from "@app/infrastructure/module/backoffice/newsp
 import {ConfigModule} from "@nestjs/config";
 import {CreateProductModule} from "@app/infrastructure/module/backoffice/product/create.product.module";
 import {DeleteNewspaperModule} from "@app/infrastructure/module/backoffice/newspaper/delete.newspaper.module";
+import {AddArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/add.article.railway.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -32,6 +33,7 @@ process.env['NODE_ENV'] = 'development';
         UpdateNewspaperModule,
         DeleteNewspaperModule,
         CreateProductModule,
+        AddArticleRailwayModule
     ],
     controllers: [AppController],
     providers: [AppService],

@@ -7,35 +7,30 @@ import Newspaper from "@app/infrastructure/model/newspaper";
 @Table({tableName: "proposal"})
 export default class Proposal extends Model {
 
-    @Column
-    topic: string
+    @Column({field: 'title'})
+    value: string
 
-    @ForeignKey(() => ProposalStatus)
-    @Column({field: 'proposal_status_id'})
-    proposalStatusId: number
+    @Column({field: 'description'})
+    description: string
 
-    @ForeignKey(() => Category)
-    @Column({field: 'category_id'})
-    categoryId: number
+    @Column({field: 'newspaper_number'})
+    newspaperNumber: number
+
+    @Column({field: 'created_at'})
+    createdAt: Date
+
+    @Column({field: 'updated_at'})
+    updatedAt: Date
 
     @ForeignKey(() => User)
     @Column({field: 'user_id'})
     userId: number
 
-    @ForeignKey(() => Newspaper)
-    @Column({field: 'newspaper_id'})
-    newspaperId: number
+    @ForeignKey(() => ProposalStatus)
+    @Column({field: 'proposal_status_id'})
+    proposalId: number
 
-    @BelongsTo(() => ProposalStatus)
-    proposalStatus: ProposalStatus
-
-    @BelongsTo(() => Category)
-    category: Category
-
-    @BelongsTo(() => User, {foreignKey: 'user_id', as: 'userProposal'})
-    user: User
-
-    @BelongsTo(() => Newspaper)
-    newspaper: Newspaper
-
+    @ForeignKey(() => Category)
+    @Column({field: 'category_id'})
+    categoryId: number
 }

@@ -3,6 +3,7 @@ import NewspaperStatus from "@app/infrastructure/model/newspaper.status";
 import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 import Proposal from "@app/infrastructure/model/proposal";
 import User from "@app/infrastructure/model/user";
+import Media from "@app/infrastructure/model/media";
 
 @Table({tableName: "newspaper"})
 export default class Newspaper extends Model {
@@ -25,9 +26,9 @@ export default class Newspaper extends Model {
     @Column({field: "updated_at"})
     updatedAt: Date
 
-    /*@ForeignKey(() => User)
+    @ForeignKey(() => Media)
     @Column({field: 'media_id'})
-    mediaId: number*/
+    mediaId: number
 
     @ForeignKey(() => User)
     @Column({field: 'user_id'})
@@ -43,11 +44,11 @@ export default class Newspaper extends Model {
     @BelongsTo(() => User)
     User: User
 
-    @HasMany(() => ArticleNewspaper)
-    articles: ArticleNewspaper[]
+    /*@HasMany(() => ArticleNewspaper)
+    articles: ArticleNewspaper[]*/
 
-    @HasMany(() => Proposal)
-    proposals: Proposal[]
+    /*@HasMany(() => Proposal)
+    proposals: Proposal[]*/
 
     /*@BeforeCreate
     public static async createFolderDrive(newspaper: Newspaper) {
