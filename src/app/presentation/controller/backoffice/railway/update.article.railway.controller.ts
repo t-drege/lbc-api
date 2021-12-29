@@ -4,7 +4,7 @@ import {UpdateArticleRailway} from "@app/domain/backoffice/usecase/railway/updat
 import {UpdateArticleRailwayRequest} from "@app/domain/backoffice/request/railway/update.article.railway.request";
 import {UpdateArticleRailwayViewModel} from "@app/presentation/viewmodel/backoffice/railway/update.article.railway.viewmodel";
 
-@Controller('/articles-newspaper/:id')
+@Controller('/newspapers/:newspaperId/articles-newspaper/:id')
 export class UpdateArticleRailwayController {
     private readonly usecase: UpdateArticleRailway
     private readonly presenter: UpdateArticleRailwayPresenterImpl

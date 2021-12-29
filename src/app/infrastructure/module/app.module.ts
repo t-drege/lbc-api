@@ -12,6 +12,7 @@ import {CreateProductModule} from "@app/infrastructure/module/backoffice/product
 import {DeleteNewspaperModule} from "@app/infrastructure/module/backoffice/newspaper/delete.newspaper.module";
 import {AddArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/add.article.railway.module";
 import {UpdateArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/update.article.railway.module";
+import {AllArticlesRailwayModule} from "@app/infrastructure/module/backoffice/railway/all.articles.railway.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -35,7 +36,8 @@ process.env['NODE_ENV'] = 'development';
         DeleteNewspaperModule,
         CreateProductModule,
         AddArticleRailwayModule,
-        UpdateArticleRailwayModule
+        UpdateArticleRailwayModule,
+        AllArticlesRailwayModule
     ],
     controllers: [AppController],
     providers: [AppService],
