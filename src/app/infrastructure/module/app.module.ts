@@ -14,6 +14,8 @@ import {AddArticleRailwayModule} from "@app/infrastructure/module/backoffice/rai
 import {UpdateArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/update.article.railway.module";
 import {AllArticlesRailwayModule} from "@app/infrastructure/module/backoffice/railway/all.articles.railway.module";
 import {RemoveArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/remove.article.railway.module";
+import {UploadFileArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/upload.file.article.railway.module";
+import {NextCloudModule} from "@app/application/webdav/nextcloud.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -39,7 +41,9 @@ process.env['NODE_ENV'] = 'development';
         AddArticleRailwayModule,
         UpdateArticleRailwayModule,
         AllArticlesRailwayModule,
-        RemoveArticleRailwayModule
+        RemoveArticleRailwayModule,
+        UploadFileArticleRailwayModule,
+        NextCloudModule
     ],
     controllers: [AppController],
     providers: [AppService],
