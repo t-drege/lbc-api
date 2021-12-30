@@ -6,6 +6,7 @@ import {UploadFileArticleRailwayResponse} from "@app/domain/backoffice/response/
 import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 import Newspaper from "@app/infrastructure/model/newspaper";
 import ArticleNewspaperStatus from "@app/infrastructure/model/article.newspaper.status";
+import {unlinkSync} from "fs";
 
 @Injectable()
 export class UploadFileArticleRailway {
@@ -26,6 +27,8 @@ export class UploadFileArticleRailway {
         await this.nextcloud.createFile(newspaperFolderUpload, request.file)
 
         await this.gateway.updateFileUrlUpload(request.articleNewspaperId, newspaperFolderUpload + '/' + request.file.originalname, ArticleNewspaperStatus.ARTICLE_SENDED)
+
+        unlinkSync(request.file.destination + '/' + request.file.originalname)
 
         const articleNewspaper: ArticleNewspaper = await this.gateway.findArticleNewspaper(request.articleNewspaperId)
 
