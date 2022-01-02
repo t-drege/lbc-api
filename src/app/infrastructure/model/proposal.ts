@@ -28,9 +28,18 @@ export default class Proposal extends Model {
 
     @ForeignKey(() => ProposalStatus)
     @Column({field: 'proposal_status_id'})
-    proposalId: number
+    proposalStatusId: number
 
     @ForeignKey(() => Category)
     @Column({field: 'category_id'})
     categoryId: number
+
+    @BelongsTo(() => ProposalStatus)
+    proposalStatus: ProposalStatus
+
+    @BelongsTo(() => User)
+    user: User
+
+    @BelongsTo(() => Category)
+    category: Category
 }

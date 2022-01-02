@@ -23,7 +23,7 @@ export default class Category extends Model {
     @ForeignKey(() => User)
     userId: number
 
-    @BelongsTo(() => User, 'user_id')
+    @BelongsTo(() => User)
     user: User
 
     @HasMany(() => ArticleNewspaper)

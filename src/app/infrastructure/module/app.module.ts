@@ -17,6 +17,7 @@ import {RemoveArticleRailwayModule} from "@app/infrastructure/module/backoffice/
 import {UploadFileArticleRailwayModule} from "@app/infrastructure/module/backoffice/railway/upload.file.article.railway.module";
 import {NextCloudModule} from "@app/application/webdav/nextcloud.module";
 import {CreateProposalModule} from "@app/infrastructure/module/backoffice/proposal/create.proposal.module";
+import {AllProposalsModule} from "@app/infrastructure/module/backoffice/proposal/all.proposals.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -46,6 +47,7 @@ process.env['NODE_ENV'] = 'development';
         UploadFileArticleRailwayModule,
         NextCloudModule,
         CreateProposalModule,
+        AllProposalsModule
     ],
     controllers: [AppController],
     providers: [AppService],
