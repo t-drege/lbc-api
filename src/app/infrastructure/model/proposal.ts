@@ -8,7 +8,7 @@ import Newspaper from "@app/infrastructure/model/newspaper";
 export default class Proposal extends Model {
 
     @Column({field: 'title'})
-    value: string
+    title: string
 
     @Column({field: 'description'})
     description: string
