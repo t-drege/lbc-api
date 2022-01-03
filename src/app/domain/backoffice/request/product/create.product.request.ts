@@ -3,15 +3,17 @@ export class CreateProductRequest {
     private readonly _description: string
     private readonly _price: number
     private readonly _quantity: number
+    private readonly _activated: boolean
     private readonly _mediaId: number
     private readonly _productTypeId: number
     private readonly _newspaperId: number
     private readonly _isSubscription: boolean
 
-    constructor(description: string, price: number, quantity: number, mediaId: number, productTypeId: number, newspaperId: number, isSubscription: boolean) {
+    constructor(description: string, price: number, quantity: number, activated:boolean, mediaId: number, productTypeId: number, newspaperId: number, isSubscription: boolean) {
         this._description = description
         this._price = price
         this._quantity = quantity
+        this._activated = activated
         this._mediaId = mediaId
         this._productTypeId = productTypeId
         this._newspaperId = newspaperId
@@ -28,6 +30,10 @@ export class CreateProductRequest {
 
     get quantity(): number {
         return this._quantity;
+    }
+
+    get activated(): boolean {
+        return this._activated;
     }
 
     get mediaId(): number {

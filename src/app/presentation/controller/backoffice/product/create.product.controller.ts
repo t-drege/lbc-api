@@ -20,6 +20,7 @@ export class CreateProductController {
                 req.body.description,
                 req.body.price,
                 req.body.quantity,
+                req.body.activated,
                 req.body.mediaId,
                 req.body.productTypeId,
                 req.body.newspaperId,

@@ -24,6 +24,9 @@ export default class Product extends Model {
     @Column({field: 'quantity'})
     quantity: number
 
+    @Column({field: 'activated'})
+    activated: boolean
+
     @Column({field: 'created_at'})
     createdAt: Date
 

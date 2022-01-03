@@ -31,6 +31,7 @@ export class CreateProduct {
                 description: request.description,
                 price: request.price,
                 quantity: request.quantity,
+                activated: request.activated,
                 memberPricePack: request.price,
                 mediaId: request.mediaId,
                 productTypeId: request.productTypeId,
@@ -99,7 +100,7 @@ export class CreateProduct {
         plans.productId = productPaypal.id
         plans.name = product.description
         plans.description = product.description
-        plans.status = "ACTIVE"
+        plans.status = (product.activated == true) ? "ACTIVE" : "INACTIVE"
         plans.billingCycles = [billingCycles]
         plans.taxes = taxes
         plans.paymentPreferences = paymentPreferences
