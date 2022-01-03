@@ -4,6 +4,7 @@ import ArticleNewspaper from "@app/infrastructure/model/article.newspaper";
 import Proposal from "@app/infrastructure/model/proposal";
 import User from "@app/infrastructure/model/user";
 import Media from "@app/infrastructure/model/media";
+import Product from "@app/infrastructure/model/product";
 
 @Table({tableName: "newspaper"})
 export default class Newspaper extends Model {
@@ -43,6 +44,9 @@ export default class Newspaper extends Model {
 
     @BelongsTo(() => User)
     User: User
+
+    @HasMany(() => Product)
+    products: Product[]
 
     /*@HasMany(() => ArticleNewspaper)
     articles: ArticleNewspaper[]*/

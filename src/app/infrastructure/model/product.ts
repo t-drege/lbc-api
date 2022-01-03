@@ -21,6 +21,9 @@ export default class Product extends Model {
     @Column({field: 'member_price_pack'})
     memberPricePack: number
 
+    @Column({field: 'quantity'})
+    quantity: number
+
     @Column({field: 'created_at'})
     createdAt: Date
 
@@ -35,10 +38,17 @@ export default class Product extends Model {
     @Column({field: 'product_type_id'})
     productTypeId: number
 
+    @ForeignKey(() => Newspaper)
+    @Column({field: 'newspaper_id'})
+    newspaperId: number
+
     @BelongsTo(() => Media)
     media: Media
 
     @BelongsTo(() => ProductType)
     productType: ProductType
+
+    @BelongsTo(() => Newspaper)
+    newspaper: Newspaper
 
 }

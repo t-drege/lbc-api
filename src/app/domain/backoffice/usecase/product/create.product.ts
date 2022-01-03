@@ -30,9 +30,11 @@ export class CreateProduct {
         let product: Product = await this.gateway.create(new Product({
                 description: request.description,
                 price: request.price,
+                quantity: request.quantity,
                 memberPricePack: request.price,
                 mediaId: request.mediaId,
-                productTypeId: request.productTypeId
+                productTypeId: request.productTypeId,
+                newspaperId: request.newspaperId
             }
         ))
 
@@ -45,10 +47,10 @@ export class CreateProduct {
 
             const plan = deserialize<Plans>(data, Plans)
 
-            product = await this.gateway.updateKeyProduct(product.id, productPaypal.id, plan.id).then(() => this.gateway.findProduct(product.id))
+            await this.gateway.updateKeyProduct(product.id, productPaypal.id, plan.id)
         }
-        console.log(product)
-        return new CreateProductResponse(product)
+
+        return new CreateProductResponse(await this.gateway.findProduct(product.id))
     }
 
     public createProduct(request: CreateProductRequest, productId: number): ProductPaypal {

@@ -19,8 +19,10 @@ export class CreateProductController {
             new CreateProductRequest(
                 req.body.description,
                 req.body.price,
+                req.body.quantity,
                 req.body.mediaId,
                 req.body.productTypeId,
+                req.body.newspaperId,
                 req.body.isSubscription
             )))
         res.status(vm.statusCode).send(vm.product)
