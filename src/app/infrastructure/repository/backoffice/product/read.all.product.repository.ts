@@ -11,13 +11,14 @@ export class ReadAllProductRepository implements ReadAllProductGateway {
             where: {
                 [Op.and]: {
                     activated: {
-                        [Op.and]: {
-                            [Op.in]: activated,
-                        }
+                        [Op.in]: activated,
+                    },
+                    newspaperId: {
+                        [Op.in]: []
                     },
                     description: {
                         [Op.like]: "%" + description + "%"
-                    }
+                    },
                 }
             },
             limit: limit,
