@@ -3,6 +3,7 @@ import {Inject, Injectable} from "@nestjs/common";
 import {ReadAllProductRequest} from "@app/domain/backoffice/request/product/read.all.product.request";
 import {ReadAllProductResponse} from "@app/domain/backoffice/response/product/read.all.product.response";
 import {pagination, pagingData} from "@app/application/utils/pagination";
+import {isString} from "@nestjs/common/utils/shared.utils";
 
 @Injectable()
 export class ReadAllProduct {
@@ -14,7 +15,7 @@ export class ReadAllProduct {
 
     public async execute(request: ReadAllProductRequest) {
         const {limit, offset} = pagination(request.page, request.limit)
-        const newspapers = await this.gateway.findAllProduct(offset, limit)
+        const newspapers = await this.gateway.findAllProduct(offset, limit, request.activated, request.description)
         const rows = pagingData(newspapers, request.page, limit)
         return new ReadAllProductResponse(rows)
     }
