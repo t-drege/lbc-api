@@ -5,22 +5,10 @@ import {Op, where} from "sequelize";
 
 @Injectable()
 export class ReadAllProductRepository implements ReadAllProductGateway {
-    findAllProduct(offset: number, limit: number, activated: Array<number>, description: string): Promise<any> {
-        console.log(activated)
+    findAllProduct(offset: number, limit: number, filters: object): Promise<any> {
+        console.log(where)
         return Product.findAndCountAll({
-            where: {
-                [Op.and]: {
-                    activated: {
-                        [Op.in]: activated,
-                    },
-                    newspaperId: {
-                        [Op.in]: []
-                    },
-                    description: {
-                        [Op.like]: "%" + description + "%"
-                    },
-                }
-            },
+            where: filters,
             limit: limit,
             offset: offset,
             order: [

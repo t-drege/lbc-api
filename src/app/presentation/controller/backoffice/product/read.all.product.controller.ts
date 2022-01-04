@@ -15,7 +15,7 @@ export class ReadAllProductController {
 
     @Get()
     public async readAllProductionAction(@Req() req, @Res() res) {
-        const vm = this.presenter.present(await this.useCase.execute(new ReadAllProductRequest(req.query.page, req.query.limit, req.query.activated, req.query.description)))
+        const vm = this.presenter.present(await this.useCase.execute(new ReadAllProductRequest(req.query.page, req.query.limit, req.query.activated, req.query.description, req.query.newspaperId)))
         res.status(vm.statusCode).send(vm.rows)
     }
 }

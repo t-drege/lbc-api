@@ -3,7 +3,6 @@ import {Inject, Injectable} from "@nestjs/common";
 import {ReadAllProductRequest} from "@app/domain/backoffice/request/product/read.all.product.request";
 import {ReadAllProductResponse} from "@app/domain/backoffice/response/product/read.all.product.response";
 import {pagination, pagingData} from "@app/application/utils/pagination";
-import {isString} from "@nestjs/common/utils/shared.utils";
 import {Op} from "sequelize";
 
 @Injectable()
@@ -15,24 +14,36 @@ export class ReadAllProduct {
     }
 
     public async execute(request: ReadAllProductRequest) {
-        this.whereBuilder(request)
         const {limit, offset} = pagination(request.page, request.limit)
-        const newspapers = await this.gateway.findAllProduct(offset, limit, request.activated, request.description)
+        const newspapers = await this.gateway.findAllProduct(offset, limit, ReadAllProduct.filters(request))
         const rows = pagingData(newspapers, request.page, limit)
         return new ReadAllProductResponse(rows)
     }
 
-    private whereBuilder(request: ReadAllProductRequest) {
-        const where = {}
-        if(request.description != '') {
-            where[Op.and] = {
-                activated: {
+    private static filters(request: ReadAllProductRequest): object {
+        const object: object = {}
+        if (request.activated != undefined) {
+            object['activated'] =
+                {
                     [Op.eq]: request.activated,
-                },
-            }
+                }
         }
-        if(request.description)
-        console.log(where)
+
+        if (request.newspaperId != undefined) {
+            object['newspaperId'] =
+                {
+                    [Op.eq]: request.newspaperId,
+                }
+        }
+
+        if (request.description != undefined) {
+            object['description'] =
+                {
+                    [Op.like]: "%" + request.description + "%"
+                }
+        }
+
+        return {[Op.and]: object};
     }
 
 }
