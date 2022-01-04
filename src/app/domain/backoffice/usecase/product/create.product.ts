@@ -73,7 +73,7 @@ export class CreateProduct {
         const taxes = new Taxes()
 
         setupFee.currencyCode = "EUR"
-        setupFee.value = product.price.toString()
+        setupFee.value = "0"
 
         paymentPreferences.setupFee = setupFee
         paymentPreferences.autoBillOutstanding = true

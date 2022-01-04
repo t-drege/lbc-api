@@ -27,7 +27,6 @@ export class PaypalRequest implements PaypalRequestImpl {
     }
 
     async post(url: string, body: object) {
-        console.log(JSON.stringify(serialize(body)))
         return await curly.post(this.paypal.baseUrl + url, {
             postFields: JSON.stringify(body),
             httpHeader: this.paypal.headers,
@@ -35,7 +34,7 @@ export class PaypalRequest implements PaypalRequestImpl {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
             } else {
-                console.log(result)
+                console.log(result.data)
                 return Error
             }
         })
@@ -56,6 +55,19 @@ export class PaypalRequest implements PaypalRequestImpl {
 
     async read(url: string) {
         return await curly.get(this.paypal.baseUrl + url, {
+            httpHeader: this.paypal.headers,
+        }).then(function (result) {
+            if (result.statusCode > 0 && result.statusCode < 300) {
+                return result.data
+            } else {
+                return Error
+            }
+        })
+    }
+
+    async patch(url: string, body: object) {
+        return await curly.patch(this.paypal.baseUrl + url, {
+            postFields: JSON.stringify(body),
             httpHeader: this.paypal.headers,
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {

@@ -6,4 +6,6 @@ export interface PaypalRequestImpl {
     read(url: string)
 
     delete(url: string)
+
+    patch(url: string, body: object)
 }
