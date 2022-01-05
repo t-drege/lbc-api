@@ -17,7 +17,6 @@ export class UpdateBodyArticleController {
     @Put()
     @UseGuards(JwtAuthGuard)
     public async updateBodyArticleAction(@Req() req, @Res() res) {
-        console.log(req.body)
         const vm = this.presenter.present(await this.useCase.execute(new UpdateBodyArticleRequest(req.params.id, req.body.bodyHtml)))
         res.status(vm.statusCode).send(vm.bodyHtml)
     }
