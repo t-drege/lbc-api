@@ -5,7 +5,7 @@ export interface CreateArticleGateway {
 
     addImage(filename: string, mimeType: string): Promise<Media>
 
-    createArticle(title: string, subTitle: string, slug: string, hotNews: boolean, mediaId: number, userId: number, categoryId: number, articleStatusId: number): Promise<Article>
+    createArticle(title: string, subTitle: string, slug: string, hotNews: boolean, mediaId: number, userId: number, categoryId: number): Promise<Article>
 
     findArticleById(articleId): Promise<Article>
 }

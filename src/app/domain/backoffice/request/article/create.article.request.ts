@@ -6,9 +6,8 @@ export class CreateArticleRequest {
     private readonly _fileCoverArticle: Express.Multer.File
     private readonly _userId: number
     private readonly _categoryId: number
-    private readonly _articleStatusId: number
 
-    constructor(title: string, subTitle: string, slug: string, hotNews: boolean, fileCoverArticle: Express.Multer.File, userId: number, categoryId: number, articleStatusId: number) {
+    constructor(title: string, subTitle: string, slug: string, hotNews: boolean, fileCoverArticle: Express.Multer.File, userId: number, categoryId: number) {
         this._title = title
         this._subTitle = subTitle
         this._slug = slug
@@ -16,7 +15,6 @@ export class CreateArticleRequest {
         this._fileCoverArticle = fileCoverArticle
         this._userId = userId
         this._categoryId = categoryId
-        this._articleStatusId = articleStatusId
     }
 
     get title(): string {
@@ -45,9 +43,5 @@ export class CreateArticleRequest {
 
     get categoryId(): number {
         return this._categoryId;
-    }
-
-    get articleStatusId(): number {
-        return this._articleStatusId;
     }
 }

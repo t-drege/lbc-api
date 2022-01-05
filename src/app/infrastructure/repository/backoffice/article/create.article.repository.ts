@@ -16,7 +16,7 @@ export class CreateArticleRepository implements CreateArticleGateway {
         })
     }
 
-    createArticle(title: string, subTitle: string, slug: string, hotNews: boolean, mediaId: number, userId: number, categoryId: number, articleStatusId: number): Promise<Article> {
+    createArticle(title: string, subTitle: string, slug: string, hotNews: boolean, mediaId: number, userId: number, categoryId: number): Promise<Article> {
         return  Article.create({
             title: title,
             subTitle:subTitle,
@@ -25,7 +25,6 @@ export class CreateArticleRepository implements CreateArticleGateway {
             mediaId:mediaId,
             userId:userId,
             categoryId: categoryId,
-            articleStatusId:articleStatusId
         } , {
             returning: true,
             raw: true

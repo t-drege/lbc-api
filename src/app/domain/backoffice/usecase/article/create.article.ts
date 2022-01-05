@@ -15,7 +15,7 @@ export class CreateArticle {
 
     public async execute(request: CreateArticleRequest) {
         const media: Media = await this.gateway.addImage(request.fileCoverArticle.filename, request.fileCoverArticle.mimetype)
-        const articleCreate: Article = await this.gateway.createArticle(request.title, request.subTitle, request.slug, request.hotNews, media.id, request.userId, request.categoryId, request.articleStatusId)
+        const articleCreate: Article = await this.gateway.createArticle(request.title, request.subTitle, request.slug, request.hotNews, media.id, request.userId, request.categoryId)
         const article: Article = await this.gateway.findArticleById(articleCreate.id)
         return new CreateArticleResponse(article)
     }

@@ -42,8 +42,7 @@ export class CreateArticleController {
             req.body.hotNews,
             file,
             req.user.id,
-            req.body.categoryId,
-            req.body.articleStatusId,
+            req.body.categoryId
         )))
 
         res.status(vm.statusCode).send(vm.article)
