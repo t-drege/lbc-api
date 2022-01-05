@@ -24,6 +24,9 @@ export default class Article extends Model {
     @Column({field: 'published_at'})
     publishedAt: Date
 
+    @Column({field: 'hot_news'})
+    hotNews: boolean
+
     @Column({field: 'created_at'})
     createdAt: Date
 
@@ -33,10 +36,6 @@ export default class Article extends Model {
     @Column({field: 'media_id'})
     @ForeignKey(() => Media)
     mediaId: number
-
-    @Column({field: 'newspaper_id'})
-    @ForeignKey(() => Newspaper)
-    newspaperId: number
 
     @Column({field: 'user_id'})
     @ForeignKey(() => User)

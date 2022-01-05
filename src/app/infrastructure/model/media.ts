@@ -6,11 +6,8 @@ import Product from "@app/infrastructure/model/product";
 @Table({tableName: "media"})
 export default class Media extends Model {
 
-    @Column({field:'value'})
-    value: string
-
-    @Column({field:'path'})
-    path:string
+    @Column({field:'name'})
+    name:string
 
     @Column({field:'mime_type'})
     mimeType:string
