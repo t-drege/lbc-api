@@ -22,7 +22,7 @@ import {UpdateProposalModule} from "@app/infrastructure/module/backoffice/propos
 import {DeleteProposalModule} from "@app/infrastructure/module/backoffice/proposal/delete.proposal.module";
 import {UpdateProductModule} from "@app/infrastructure/module/backoffice/product/update.product.module";
 import {ReadAllProductModule} from "@app/infrastructure/module/backoffice/product/read.all.product.module";
-import {UploadImageArticleModule} from "@app/infrastructure/module/backoffice/article/upload.image.article.module";
+import {UploadImageBodyArticleModule} from "@app/infrastructure/module/backoffice/article/upload.image.body.article.module";
 import {CreateArticleModule} from "@app/infrastructure/module/backoffice/article/create.article.module";
 import {UpdateAbstractArticleModule} from "@app/infrastructure/module/backoffice/article/update.abstract.article.module";
 import {UpdateBodyArticleModule} from "@app/infrastructure/module/backoffice/article/update.body.article.module";
@@ -61,7 +61,7 @@ process.env['NODE_ENV'] = 'development';
         DeleteProposalModule,
         UpdateProductModule,
         ReadAllProductModule,
-        UploadImageArticleModule,
+        UploadImageBodyArticleModule,
         CreateArticleModule,
         UpdateAbstractArticleModule,
         UpdateBodyArticleModule,
