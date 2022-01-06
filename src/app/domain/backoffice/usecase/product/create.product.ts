@@ -32,6 +32,7 @@ export class CreateProduct {
                 price: request.price,
                 quantity: request.quantity,
                 activated: request.activated,
+                frequency: request.frequency,
                 memberPricePack: request.price,
                 mediaId: request.mediaId,
                 productTypeId: request.productTypeId,
@@ -89,7 +90,7 @@ export class CreateProduct {
         pricingScheme.fixedPrice = fixedPrice
 
         frequency.intervalCount = 1
-        frequency.intervalUnit = 'MONTH'
+        frequency.intervalUnit = product.frequency
 
         billingCycles.frequency = frequency
         billingCycles.tenureType = "REGULAR"

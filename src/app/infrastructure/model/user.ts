@@ -1,4 +1,4 @@
-import {Table, Column, Model, HasMany, HasOne, ForeignKey, BelongsTo, BeforeCreate} from 'sequelize-typescript'
+import {Table, Column, Model, HasMany, HasOne, ForeignKey, BelongsTo, BeforeCreate,BeforeUpdate} from 'sequelize-typescript'
 
 import * as bcrypt from 'bcrypt'
 import Role from "@app/infrastructure/model/role";
@@ -25,6 +25,15 @@ export default class User extends Model {
     @Column({field: "password"})
     password: string
 
+    @Column({field: "phone"})
+    phone: string
+
+    @Column({field: "adress"})
+    adress: string
+
+    @Column({field: "postal_code"})
+    postalCode: number
+
     @Column({field: "created_at"})
     createdAt: Date
 
@@ -50,6 +59,7 @@ export default class User extends Model {
     @HasMany(() => Newspaper)
     newspapers: Newspaper[]
 
+    @BeforeUpdate
     @BeforeCreate
     public static async encryptPassword(user: User) {
         user.password = await bcrypt.hash(user.password, 10).then(function (hash) {

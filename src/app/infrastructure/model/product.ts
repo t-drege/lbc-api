@@ -27,6 +27,9 @@ export default class Product extends Model {
     @Column({field: 'activated'})
     activated: boolean
 
+    @Column({field: 'frequency'})
+    frequency: string
+
     @Column({field: 'created_at'})
     createdAt: Date
 

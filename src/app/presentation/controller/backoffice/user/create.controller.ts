@@ -31,7 +31,10 @@ export class CreateController {
                     req.body.username,
                     req.body.email,
                     req.body.password,
-                    req.body.role_id
+                    req.body.phone,
+                    req.body.adress,
+                    req.body.postalCode,
+                    req.body.roleId
                 ))).then(function (viewmodel) {
             res.status(viewmodel.statusCode).send(viewmodel.user)
         })

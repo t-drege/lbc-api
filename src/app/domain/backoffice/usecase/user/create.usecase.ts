@@ -20,6 +20,9 @@ export default class CreateUsecase {
             username: request.username,
             email: request.email,
             password: request.password,
+            phone: request.phone,
+            adress: request.adress,
+            postalCode: request.postalCode,
             roleId: request.roleId
         })).then(function (user) {
             return new CreateResponse(user);

@@ -27,6 +27,7 @@ import {CreateArticleModule} from "@app/infrastructure/module/backoffice/article
 import {UpdateAbstractArticleModule} from "@app/infrastructure/module/backoffice/article/update.abstract.article.module";
 import {UpdateBodyArticleModule} from "@app/infrastructure/module/backoffice/article/update.body.article.module";
 import {PublishArticleModule} from "@app/infrastructure/module/backoffice/article/publish.article.module";
+import {UpdateUserModule} from "@app/infrastructure/module/backoffice/user/update.user.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -65,7 +66,8 @@ process.env['NODE_ENV'] = 'development';
         CreateArticleModule,
         UpdateAbstractArticleModule,
         UpdateBodyArticleModule,
-        PublishArticleModule
+        PublishArticleModule,
+        UpdateUserModule
     ],
     controllers: [AppController],
     providers: [AppService],

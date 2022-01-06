@@ -1,5 +1,5 @@
-export default class CreateRequest {
-
+export class UpdateUserRequest {
+    private readonly _userId:number
     private readonly _firstname: string
     private readonly _lastname: string
     private readonly _username: string
@@ -10,7 +10,8 @@ export default class CreateRequest {
     private readonly _postalCode: number
     private readonly _roleId: number
 
-    constructor(firstname: string, lastname: string, username: string, email: string, password: string, phone: string, adress: string, postalCode: number, roleId: number) {
+    constructor(userId:number,firstname: string, lastname: string, username: string, email: string, password: string, phone: string, adress: string, postalCode: number, roleId: number) {
+        this._userId = userId
         this._firstname = firstname
         this._lastname = lastname
         this._username = username
@@ -20,6 +21,10 @@ export default class CreateRequest {
         this._adress = adress
         this._postalCode = postalCode
         this._roleId = roleId
+    }
+
+    get userId(): number {
+        return this._userId;
     }
 
     get firstname(): string {
