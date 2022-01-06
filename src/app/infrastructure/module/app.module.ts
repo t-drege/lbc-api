@@ -31,6 +31,7 @@ import {UpdateUserModule} from "@app/infrastructure/module/backoffice/user/updat
 import {DeleteUserModule} from "@app/infrastructure/module/backoffice/user/delete.user.module";
 import {AllUserModule} from "@app/infrastructure/module/backoffice/user/all.user.module";
 import {ReadAllArticleModule} from "@app/infrastructure/module/backoffice/article/read.all.article.module";
+import {CreateSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/create.subscription.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -73,7 +74,8 @@ process.env['NODE_ENV'] = 'development';
         UpdateUserModule,
         DeleteUserModule,
         AllUserModule,
-        ReadAllArticleModule
+        ReadAllArticleModule,
+        CreateSubscriptionModule
     ],
     controllers: [AppController],
     providers: [AppService],
