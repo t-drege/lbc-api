@@ -30,6 +30,7 @@ import {PublishArticleModule} from "@app/infrastructure/module/backoffice/articl
 import {UpdateUserModule} from "@app/infrastructure/module/backoffice/user/update.user.module";
 import {DeleteUserModule} from "@app/infrastructure/module/backoffice/user/delete.user.module";
 import {AllUserModule} from "@app/infrastructure/module/backoffice/user/all.user.module";
+import {ReadAllArticleModule} from "@app/infrastructure/module/backoffice/article/read.all.article.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -71,7 +72,8 @@ process.env['NODE_ENV'] = 'development';
         PublishArticleModule,
         UpdateUserModule,
         DeleteUserModule,
-        AllUserModule
+        AllUserModule,
+        ReadAllArticleModule
     ],
     controllers: [AppController],
     providers: [AppService],
