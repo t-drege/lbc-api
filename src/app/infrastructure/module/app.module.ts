@@ -29,6 +29,7 @@ import {UpdateBodyArticleModule} from "@app/infrastructure/module/backoffice/art
 import {PublishArticleModule} from "@app/infrastructure/module/backoffice/article/publish.article.module";
 import {UpdateUserModule} from "@app/infrastructure/module/backoffice/user/update.user.module";
 import {DeleteUserModule} from "@app/infrastructure/module/backoffice/user/delete.user.module";
+import {AllUserModule} from "@app/infrastructure/module/backoffice/user/all.user.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -69,7 +70,8 @@ process.env['NODE_ENV'] = 'development';
         UpdateBodyArticleModule,
         PublishArticleModule,
         UpdateUserModule,
-        DeleteUserModule
+        DeleteUserModule,
+        AllUserModule
     ],
     controllers: [AppController],
     providers: [AppService],
