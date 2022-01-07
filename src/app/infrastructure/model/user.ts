@@ -31,8 +31,14 @@ export default class User extends Model {
     @Column({field: "adress"})
     adress: string
 
+    @Column({field: "city"})
+    city: string
+
     @Column({field: "postal_code"})
     postalCode: number
+
+    @Column({field: "country"})
+    country: string
 
     @Column({field: "created_at"})
     createdAt: Date

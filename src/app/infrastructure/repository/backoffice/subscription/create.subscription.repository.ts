@@ -2,11 +2,15 @@ import {CreateSubscriptionGateway} from "@app/domain/backoffice/gateway/subscrip
 import Subscription from "@app/infrastructure/model/subscription";
 
 export class CreateSubscriptionRepository implements CreateSubscriptionGateway {
-    createSubscription(userId: number, productId: number, paymentTypeId: number): Promise<Subscription> {
+    createSubscription(userId: number, productId: number, paymentTypeId: number, adress: string, city: string, postalCode: number, dateEnd: Date): Promise<Subscription> {
         return Subscription.create({
             userId: userId,
             productId: productId,
-            paymentTypeId: paymentTypeId
+            paymentTypeId: paymentTypeId,
+            adress: adress,
+            city: city,
+            postalCode: postalCode,
+            dateEnd: dateEnd
         }, {
             returning: true,
             raw: true

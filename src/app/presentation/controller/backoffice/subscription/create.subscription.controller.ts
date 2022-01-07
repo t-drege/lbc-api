@@ -18,7 +18,10 @@ export class CreateSubscriptionController {
         const vm = this.presenter.present(await this.useCase.execute(new CreateSubscriptionRequest(
             req.body.userId,
             req.body.productId,
-            req.body.paymentTypeId
+            req.body.paymentTypeId,
+            req.body.adress,
+            req.body.city,
+            req.body.postalCode
         )))
 
         res.status(vm.statusCode).send(vm.subscription)

@@ -11,7 +11,19 @@ export default class Subscription extends Model {
     numberSubscribing: string
 
     @Column({field: 'automatic'})
-    automatic: Date
+    automatic: boolean
+
+    @Column({field: "adress"})
+    adress: string
+
+    @Column({field: "city"})
+    city: string
+
+    @Column({field: "postal_code"})
+    postalCode: number
+
+    @Column({field: "country"})
+    country: string
 
     @Column({field: 'date_start'})
     dateStart: Date

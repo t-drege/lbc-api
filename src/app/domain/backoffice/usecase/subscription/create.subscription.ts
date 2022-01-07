@@ -13,8 +13,21 @@ export class CreateSubscription {
     }
 
     public async execute(request: CreateSubscriptionRequest) {
-        const subscription: Subscription = await this.gateway.createSubscription(request.userId, request.productId, request.paymentTypeId).then((subscription) => this.gateway.findSubscriptionById(subscription.id))
+
+        let dateEnd = new Date()
+        dateEnd.setFullYear(dateEnd.getFullYear() + 1, dateEnd.getMonth(), dateEnd.getDay())
+
+        const subscription: Subscription = await this.gateway.createSubscription(
+            request.userId,
+            request.productId,
+            request.paymentTypeId,
+            request.adress,
+            request.city,
+            request.postalCode,
+            dateEnd).then((subscription) => this.gateway.findSubscriptionById(subscription.id))
+
         return new CreateSubscriptionResponse(subscription)
+
     }
 
 }
