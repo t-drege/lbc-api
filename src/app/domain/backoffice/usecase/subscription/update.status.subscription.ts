@@ -24,7 +24,6 @@ export class UpdateStatusSubscription {
 
         subscription = await this.gateway.updateStatusSubscription(request.subscriptionId, request.subscriptionStatusId, dateEnd).then(() => this.gateway.findSubscriptionById(request.subscriptionId))
 
-        console.log(subscription.numberSubscription)
         if (subscription.numberSubscription != null) {
             switch (request.subscriptionStatusId) {
                 case SubscriptionStatus.ACTIVATED:

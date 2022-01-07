@@ -17,6 +17,7 @@ export class PaypalRequest implements PaypalRequestImpl {
     async delete(url: string) {
         return await curly.delete(this.paypal.baseUrl + url, {
             httpHeader: this.paypal.headers,
+            sslVerifyPeer: false
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
@@ -30,6 +31,7 @@ export class PaypalRequest implements PaypalRequestImpl {
         return await curly.post(this.paypal.baseUrl + url, {
             postFields: JSON.stringify(body),
             httpHeader: this.paypal.headers,
+            sslVerifyPeer: false
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
@@ -44,6 +46,7 @@ export class PaypalRequest implements PaypalRequestImpl {
         return await curly.put(this.paypal.baseUrl + url, {
             postFields: JSON.stringify(body),
             httpHeader: this.paypal.headers,
+            sslVerifyPeer: false
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
@@ -56,6 +59,7 @@ export class PaypalRequest implements PaypalRequestImpl {
     async read(url: string) {
         return await curly.get(this.paypal.baseUrl + url, {
             httpHeader: this.paypal.headers,
+            sslVerifyPeer: false
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
@@ -69,6 +73,7 @@ export class PaypalRequest implements PaypalRequestImpl {
         return await curly.patch(this.paypal.baseUrl + url, {
             postFields: JSON.stringify(body),
             httpHeader: this.paypal.headers,
+            sslVerifyPeer: false
         }).then(function (result) {
             if (result.statusCode > 0 && result.statusCode < 300) {
                 return result.data
