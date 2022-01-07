@@ -35,6 +35,7 @@ import {CreateSubscriptionModule} from "@app/infrastructure/module/backoffice/su
 import {UpdateStatusSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/update.status.subscription.module";
 import {ReadAllSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/read.all.subscription.module";
 import {AddMediaModule} from "@app/infrastructure/module/backoffice/media/add.media.module";
+import {RemoveMediaModule} from "@app/infrastructure/module/backoffice/media/remove.media.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -81,7 +82,8 @@ process.env['NODE_ENV'] = 'development';
         CreateSubscriptionModule,
         UpdateStatusSubscriptionModule,
         ReadAllSubscriptionModule,
-        AddMediaModule
+        AddMediaModule,
+        RemoveMediaModule
     ],
     controllers: [AppController],
     providers: [AppService],
