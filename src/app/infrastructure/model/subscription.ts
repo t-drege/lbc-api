@@ -1,14 +1,15 @@
-import {Column, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, ForeignKey, Model, Table} from "sequelize-typescript";
 import User from "@app/infrastructure/model/user";
 import Product from "@app/infrastructure/model/product";
 import PaymentType from "@app/infrastructure/model/payment.type";
 import SubscriptionStatus from "@app/infrastructure/model/subscription.status";
+import Newspaper from "@app/infrastructure/model/newspaper";
 
 @Table({tableName: 'subscription'})
 export default class Subscription extends Model {
 
     @Column({field: 'number_subscription'})
-    numberSubscribing: string
+    numberSubscription: string
 
     @Column({field: 'automatic'})
     automatic: boolean
@@ -52,5 +53,8 @@ export default class Subscription extends Model {
     @ForeignKey(() => SubscriptionStatus)
     @Column({field: 'subscription_status_id'})
     subscriptionStatusId: number
+
+    @BelongsTo(() => Product)
+    product: Product
 
 }

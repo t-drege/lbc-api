@@ -2,9 +2,13 @@ import {Table, Column, Model, HasMany, ForeignKey, BelongsTo} from 'sequelize-ty
 import ProductType from "@app/infrastructure/model/product.type";
 import Media from "@app/infrastructure/model/media";
 import Newspaper from "@app/infrastructure/model/newspaper";
+import Subscription from "@app/infrastructure/model/subscription";
 
 @Table({tableName: "product"})
 export default class Product extends Model {
+
+    static FREQUENCY_MONTH = "MONTH"
+    static FREQUENCY_YEAR = "YEAR"
 
     @Column({field: 'description'})
     description: string
@@ -56,5 +60,8 @@ export default class Product extends Model {
 
     @BelongsTo(() => Newspaper)
     newspaper: Newspaper
+
+    @HasMany(() => Subscription)
+    subscriptions: Subscription[]
 
 }
