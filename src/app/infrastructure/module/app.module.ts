@@ -33,6 +33,7 @@ import {AllUserModule} from "@app/infrastructure/module/backoffice/user/all.user
 import {ReadAllArticleModule} from "@app/infrastructure/module/backoffice/article/read.all.article.module";
 import {CreateSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/create.subscription.module";
 import {UpdateStatusSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/update.status.subscription.module";
+import {ReadAllSubscriptionModule} from "@app/infrastructure/module/backoffice/subscription/read.all.subscription.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -77,7 +78,8 @@ process.env['NODE_ENV'] = 'development';
         AllUserModule,
         ReadAllArticleModule,
         CreateSubscriptionModule,
-        UpdateStatusSubscriptionModule
+        UpdateStatusSubscriptionModule,
+        ReadAllSubscriptionModule
     ],
     controllers: [AppController],
     providers: [AppService],

@@ -4,8 +4,6 @@ import {CreateSubscriptionPresenter} from "@app/presentation/presenter/backoffic
 import {CreateSubscription} from "@app/domain/backoffice/usecase/subscription/create.subscription";
 import {CreateSubscriptionRepository} from "@app/infrastructure/repository/backoffice/subscription/create.subscription.repository";
 
-
-
 @Module({
     controllers: [CreateSubscriptionController],
     providers: [
