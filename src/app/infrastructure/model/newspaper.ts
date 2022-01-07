@@ -45,6 +45,9 @@ export default class Newspaper extends Model {
     @BelongsTo(() => User)
     User: User
 
+    @BelongsTo(() => Media)
+    media: Media
+
     @HasMany(() => Product)
     products: Product[]
 

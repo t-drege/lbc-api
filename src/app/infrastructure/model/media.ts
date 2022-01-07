@@ -21,4 +21,7 @@ export default class Media extends Model {
     @HasMany(() => Product)
     products: Product[]
 
+    @HasMany(() => Newspaper)
+    newspapers: Newspaper[]
+
 }
