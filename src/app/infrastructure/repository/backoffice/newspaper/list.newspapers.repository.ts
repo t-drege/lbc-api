@@ -2,6 +2,7 @@ import {ListNewspapersGateway} from "@app/domain/backoffice/gateway/newspaper/li
 import Newspaper from "@app/infrastructure/model/newspaper";
 import NewspaperStatus from "@app/infrastructure/model/newspaper.status";
 import Media from "@app/infrastructure/model/media";
+import User from "@app/infrastructure/model/user";
 
 export class ListNewspapersRepository implements ListNewspapersGateway{
     findAll(offset: number, limit: number): Promise<any> {
@@ -14,6 +15,9 @@ export class ListNewspapersRepository implements ListNewspapersGateway{
                 },
                 {
                     model: Media
+                },
+                {
+                    model: User
                 }
             ],
             limit: limit,
