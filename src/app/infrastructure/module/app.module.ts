@@ -37,6 +37,7 @@ import {ReadAllSubscriptionModule} from "@app/infrastructure/module/backoffice/s
 import {AddMediaModule} from "@app/infrastructure/module/backoffice/media/add.media.module";
 import {RemoveMediaModule} from "@app/infrastructure/module/backoffice/media/remove.media.module";
 import {ReadAllMediaModule} from "@app/infrastructure/module/backoffice/media/read.all.media.module";
+import {NewspaperStatusModule} from "@app/infrastructure/module/backoffice/newspaper.status/newspaper.status.module";
 
 process.env['NODE_ENV'] = 'development';
 
@@ -85,7 +86,8 @@ process.env['NODE_ENV'] = 'development';
         ReadAllSubscriptionModule,
         AddMediaModule,
         RemoveMediaModule,
-        ReadAllMediaModule
+        ReadAllMediaModule,
+        NewspaperStatusModule
     ],
     controllers: [AppController],
     providers: [AppService],
