@@ -23,10 +23,10 @@ export class CreateNewspaperController {
         const vm: CreateNewspaperViewModel = this.presenter.present(
             await this.usecase.execute(new CreateNewspaperRequest(
                 req.body.number,
-                req.body.principal_theme,
-                req.body.folder_upload,
+                req.body.principalTheme,
+                req.body.folderUpload,
                 req.user.id,
-                req.body.newspaper_status_id
+                req.body.newspaperStatusId
             ))
         )
         res.status(vm.statusCode).send(vm.newspaper)
