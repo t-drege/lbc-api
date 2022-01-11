@@ -5,13 +5,15 @@ export class CreateNewspaperRequest {
     private readonly _folderUpload: string
     private readonly _userId: number
     private readonly _newspaperStatusId: number
+    private readonly _file: Express.Multer.File
 
-    constructor(number: number, principalTheme: string, folderUpload: string, userId: number, newspaperStatusId: number) {
+    constructor(number: number, principalTheme: string, folderUpload: string, userId: number, newspaperStatusId: number, file: Express.Multer.File) {
         this._number = number
         this._principalTheme = principalTheme
         this._folderUpload = folderUpload
         this._userId = userId
         this._newspaperStatusId = newspaperStatusId
+        this._file = file
     }
 
     get number(): number {
@@ -32,6 +34,10 @@ export class CreateNewspaperRequest {
 
     get newspaperStatusId(): number {
         return this._newspaperStatusId;
+    }
+
+    get file(): Express.Multer.File {
+        return this._file;
     }
 
 }

@@ -20,10 +20,10 @@ export class CreateNewspaperController {
     }
 
     @Post()
-    //@UseGuards(JwtAuthGuard, RolesGuard)
-    @UseInterceptors(FileInterceptor('upload', {
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    @UseInterceptors(FileInterceptor('file', {
         storage: diskStorage({
-            destination: './public/image/upload',
+            destination: './public/upload/image',
             filename: (req, file, cb) => {
                 cb(null, file.originalname)
             }
@@ -36,7 +36,8 @@ export class CreateNewspaperController {
                 req.body.principalTheme,
                 req.body.folderUpload,
                 req.user.id,
-                req.body.newspaperStatusId
+                req.body.newspaperStatusId,
+                file
             ))
         )
         res.status(vm.statusCode).send(vm.newspaper)

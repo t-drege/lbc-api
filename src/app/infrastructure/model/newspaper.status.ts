@@ -5,6 +5,10 @@ import Newspaper from "@app/infrastructure/model/newspaper";
 @Table({tableName: "newspaper_status"})
 export default class NewspaperStatus extends Model {
 
+    static NOT_BEGINNING =1
+    static IS_RUNNING = 2
+    static PUBLISHED = 3
+
     @Column({field:'value'})
     value: string
 
